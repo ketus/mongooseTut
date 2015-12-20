@@ -14,9 +14,4 @@ var mongooseSchema = new Schema({
 
 });
 
-var noIdSchema = new Schema({
-
-	name: String},
-	{_id: false}
-
-);
+module.exports = mongoose.model('Customers', mongooseSchema);
