@@ -7,8 +7,14 @@ router.get('/', function(req, res) {
   res.render('index', { title: 'Express' });
 });
 
-router.post('/newnote', function (req, res) {
+//get new note page
+router.get('/newnote', function (req, res) {
 	return mongooseCtrl.getNote(req, res);
+});
+
+//post new note page
+router.post('/newnote', function (req, res) {
+	return mongooseCtrl.create(req, res);
 });
 
 

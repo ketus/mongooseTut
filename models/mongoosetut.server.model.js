@@ -2,6 +2,7 @@
  * Created by ketus on 12/20/15.
  */
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 var mongooseSchema = new Schema({
 

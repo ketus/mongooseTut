@@ -18,3 +18,8 @@ exports.create = function (req, res) {
 	res.redirect(301, '/');
 
 };
+
+
+exports.getNote = function (req, res) {
+	res.render('newnote', {title: 'Mongoose - New Note'});
+};
