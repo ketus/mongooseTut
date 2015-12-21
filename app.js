@@ -5,14 +5,14 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var swig = require("swig");
-
+var connString = require('./models/passwd.js');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://ketus:maxika12@ds033255.mongolab.com:33255/mongoosetut');
+mongoose.connect(connString);
 mongoose.connection.on('connected', function () {
-	console.log('connected to db ' + mongoose.connection);
+	console.log('connected to db on port: ' + mongoose.connection.port);
 });
 
 
@@ -50,7 +50,7 @@ app.use(function(req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
+  app.use(function(err, req, res) {
     res.status(err.status || 500);
     res.render('error', {
       message: err.message,
@@ -61,7 +61,7 @@ if (app.get('env') === 'development') {
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res, next) {
+app.use(function(err, req, res) {
   res.status(err.status || 500);
   res.render('error', {
     message: err.message,

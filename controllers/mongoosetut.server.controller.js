@@ -1,6 +1,6 @@
 /**
  * Created by ketus on 12/20/15.
- */
+ * */
 var Ctrl = require('../models/mongoosetut.server.model.js');
 
 exports.create = function (req, res) {
